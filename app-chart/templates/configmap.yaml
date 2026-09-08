@@ -1,0 +1,74 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "app-chart.fullname" . }}-html
+  labels:
+    {{- include "app-chart.labels" . | nindent 4 }}
+data:
+  index.html: |
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>DevSecOps Interview</title>
+      <style>
+        body {
+          margin: 0;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: Arial, sans-serif;
+          background: linear-gradient(-45deg, #0f172a, #1e3a8a, #312e81, #0f766e);
+          background-size: 400% 400%;
+          animation: gradient 8s ease infinite;
+          color: white;
+          text-align: center;
+        }
+
+        .container {
+          padding: 50px;
+          border-radius: 25px;
+          background: rgba(0, 0, 0, 0.35);
+          box-shadow: 0 0 40px rgba(255,255,255,0.2);
+        }
+
+        h1 {
+          font-size: 48px;
+          animation: textColor 4s linear infinite;
+        }
+
+        h2 {
+          font-size: 28px;
+        }
+
+        p {
+          font-size: 22px;
+        }
+
+        @keyframes gradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+
+        @keyframes textColor {
+          0% { color: #38bdf8; }
+          25% { color: #a78bfa; }
+          50% { color: #34d399; }
+          75% { color: #fbbf24; }
+          100% { color: #38bdf8; }
+        }
+      </style>
+    </head>
+
+    <body>
+      <div class="container">
+        <h1>Welcome to DevSecOps Interview Session</h1>
+        <h2>Deployment Completed Successfully!</h2>
+        <p>Git | Helm | Argo CD | Kubernetes</p>
+        <p>Automated GitOps Deployment</p>
+        <h2>Thank You!</h2>
+      </div>
+    </body>
+    </html>
+
